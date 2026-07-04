@@ -26,12 +26,79 @@ This repository showcases hands-on Security Operations Center (SOC) projects bui
 
 ## 📂 Projects
 
-| Project | Status |
-|----------|--------|
-| Project 01 - RDP Brute Force Detection & Investigation | ✅ Completed |
-| Project 02 - PowerShell Suspicious Activity Detection | 🚧 Planned |
-| Project 03 - Credential Dumping Investigation | 🚧 Planned |
-| Project 04 - Persistence Detection | 🚧 Planned |
-| Project 05 - Malware Investigation | 🚧 Planned |
+### 🛡️ Project 01 – RDP Brute Force Detection & Investigation
+**Status:** ✅ Completed
+
+**Description:**
+Simulated an RDP brute-force attack from a Kali Linux attacker machine against a Windows 10 victim. Developed a custom Splunk detection rule, investigated the generated alert, validated the absence of successful authentication, and documented the complete incident response process.
+
+**Skills:**
+- Splunk Enterprise
+- Windows Event Logs
+- Event ID 4625 Analysis
+- SPL Query Development
+- Incident Investigation
+- MITRE ATT&CK Mapping
+
+📁 **Project Folder:** [Project-01-RDP-BruteForce](./Project-01-RDP-BruteForce)
 
 ---
+
+### 🚧 Upcoming Projects
+
+- Project 02 – PowerShell Suspicious Activity Detection
+- Project 03 – Credential Dumping Investigation
+- Project 04 – Persistence Detection
+- Project 05 – Defense Evasion Detection
+- Project 06 – Discovery Techniques
+- Project 07 – Lateral Movement Investigation
+- Project 08 – Command & Control Detection
+- Project 09 – Exfiltration Detection
+- Project 10 – Impact & Ransomware Investigation
+
+## 🛠️ Skills Demonstrated
+
+| Category | Skills |
+|----------|--------|
+| SIEM | Splunk Enterprise |
+| Log Analysis | Windows Event Logs, Sysmon |
+| Detection Engineering | SPL Query Development, Alert Creation |
+| Incident Response | Alert Investigation, Incident Reporting |
+| Threat Framework | MITRE ATT&CK |
+| Operating Systems | Windows 10, Kali Linux |
+| Version Control | Git, GitHub |
+| Documentation | Technical Writing, Investigation Reports |
+
+## 💻 Technologies Used
+
+- Splunk Enterprise
+- Splunk Universal Forwarder
+- Windows 10
+- Kali Linux
+- Sysmon
+- Windows Event Logs
+- Git
+- GitHub
+- VirtualBox
+
+## 🚀 Learning Roadmap
+
+- ✅ Project 01 – RDP Brute Force Detection & Investigation
+- ⏳ Project 02 – PowerShell Suspicious Activity Detection
+- ⏳ Project 03 – Credential Dumping Investigation
+- ⏳ Project 04 – Persistence Detection
+- ⏳ Project 05 – Malware Investigation
+- ⏳ Project 06 – Phishing Investigation
+- ⏳ Project 07 – Command & Control Detection
+- ⏳ Project 08 – Lateral Movement Investigation
+- ⏳ Project 09 – Ransomware Investigation
+- ⏳ Project 10 – Enterprise SOC Investigation
+
+## 📬 Contact
+
+- **GitHub:** https://github.com/Hemanth814241
+- **LinkedIn:** https://www.linkedin.com/in/hemanth814241/
+
+---
+
+⭐ If you find this repository useful, feel free to explore the projects and follow my cybersecurity learning journey.
