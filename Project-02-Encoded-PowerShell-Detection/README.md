@@ -2,12 +2,11 @@
 
 ## Overview
 
-This project demonstrates how to detect and investigate PowerShell commands executed using the **-EncodedCommand** parameter with Splunk Enterprise and Microsoft Sysmon.
+This project demonstrates the complete Security Operations Center (SOC) workflow for detecting and investigating PowerShell execution using the **-EncodedCommand** parameter.
 
-A custom Splunk detection rule was created to identify encoded PowerShell execution, generate a real-time alert, and support incident investigation using Sysmon Process Creation events and PowerShell Script Block Logging.
+A custom Splunk detection rule was developed to identify encoded PowerShell activity, generate a real-time security alert, and support incident investigation using Microsoft Sysmon Process Creation (Event ID 1) and PowerShell Script Block Logging (Event ID 4104).
 
-The investigation included validating the alert, analyzing PowerShell activity, correlating multiple log sources, and determining whether the activity was malicious or benign.
-
+The investigation followed a structured SOC methodology, including alert validation, evidence collection, log correlation, and incident analysis to determine whether the activity represented malicious behavior or legitimate administrative activity. Based on the collected evidence, the alert was classified as a **False Positive (Lab Generated Activity)**.
 ---
 
 ## Objectives
@@ -33,6 +32,31 @@ The investigation included validating the alert, analyzing PowerShell activity, 
 | Logging | PowerShell Script Block Logging |
 | Sysmon Configuration | SwiftOnSecurity Sysmon Config |
 
+## Lab Architecture
+
+                Kali Linux
+             (Attack Simulation)
+                     │
+                     ▼
+        Windows 10 Endpoint
+        (PowerShell Execution)
+                     │
+             Microsoft Sysmon
+                     │
+      Splunk Universal Forwarder
+                     │
+                     ▼
+          Splunk Enterprise SIEM
+                     │
+         Custom Detection Rule
+                     │
+              Real-Time Alert
+                     │
+                     ▼
+           SOC Investigation
+                     │
+                     ▼
+      False Positive Classification
 ---
 
 ## Project Workflow
@@ -80,7 +104,17 @@ Project-02-Encoded-PowerShell-Detection
 - Security Monitoring
 
 ---
+## Investigation Methodology
 
+The alert was investigated using the following workflow:
+
+1. Validate the triggered alert.
+2. Review Sysmon Process Creation (Event ID 1).
+3. Analyze PowerShell Script Block Logging (Event ID 4104).
+4. Investigate child process activity.
+5. Review outbound network connections.
+6. Correlate evidence from multiple log sources.
+7. Classify the incident based on collected evidence.
 ## MITRE ATT&CK
 
 | Technique | ID |
@@ -92,3 +126,19 @@ Project-02-Encoded-PowerShell-Detection
 ## Final Outcome
 
 The custom detection successfully identified encoded PowerShell execution. Investigation confirmed that the activity was intentionally generated within a controlled home lab for testing purposes. No malicious behavior, persistence, child process execution, or network communication was observed. The incident was classified as a **False Positive (Lab Generated Activity)**.
+
+## Key Investigation Evidence
+
+The investigation is supported by screenshots demonstrating:
+
+- Detection Rule Configuration
+- Real-Time Alert Configuration
+- Triggered Splunk Alert
+- Encoded PowerShell Execution
+- PowerShell Script Block Logging (Event ID 4104)
+- Sysmon Process Creation (Event ID 1)
+- Child Process Investigation
+- Network Investigation
+- Final Investigation Verdict
+
+Refer to the **Screenshots** folder for supporting evidence.
