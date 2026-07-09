@@ -162,22 +162,69 @@ Project-02-Encoded-PowerShell-Detection
 
 ---
 
-# Key Investigation Evidence
+## Key Investigation Evidence
 
-The investigation includes evidence collected throughout the incident response process, including:
+### 1. Detection Rule
 
-- Detection Rule Configuration
-- Real-Time Alert Configuration
-- Triggered Splunk Alert
-- Encoded PowerShell Execution
-- PowerShell Script Block Logging (Event ID 4104)
-- Sysmon Process Creation (Event ID 1)
-- Child Process Investigation
-- Network Investigation
-- Final Investigation Verdict
+![Detection Rule](Screenshots/01-Detection-Query.png)
 
-Supporting screenshots are available in the **Screenshots** directory.
+The custom SPL query detects PowerShell execution using the **-EncodedCommand** parameter.
 
+---
+
+### 2. Alert Configuration
+
+![Alert Configuration](Screenshots/02-Alert-Configuration.png)
+
+A real-time Splunk alert was configured to trigger whenever the detection rule returned results.
+
+---
+
+### 3. Triggered Alert
+
+![Triggered Alert](Screenshots/05-Triggered-Alert.png)
+
+The encoded PowerShell command successfully triggered the Splunk alert.
+
+---
+
+### 4. PowerShell Script Block Logging (Event ID 4104)
+
+![PowerShell 4104](Screenshots/06-PowerShell-ScriptBlock.png)
+
+PowerShell Script Block Logging revealed the decoded PowerShell command executed during the investigation.
+
+---
+
+### 5. Sysmon Process Creation (Event ID 1)
+
+![Sysmon Event ID 1](Screenshots/07-Sysmon-Process-Creation.png)
+
+Sysmon captured the encoded PowerShell process execution and related process details.
+
+---
+
+### 6. Child Process Investigation
+
+![Child Process Investigation](Screenshots/08-Child-Process-Investigation.png)
+
+No suspicious child processes were observed.
+
+---
+
+### 7. Network Investigation
+
+![Network Investigation](Screenshots/09-Network-Investigation.png)
+
+No outbound network connections were identified.
+
+---
+
+### 8. Final Verdict
+
+![Final Verdict](Screenshots/10-Final-Verdict.png)
+
+Based on the collected evidence, the activity was classified as a **False Positive (Lab Generated Activity).**
 ---
 
 # Final Outcome
