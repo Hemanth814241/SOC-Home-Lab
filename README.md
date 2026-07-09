@@ -84,7 +84,7 @@ Simulated an RDP brute-force attack from a Kali Linux attacker machine against a
 ## 🚀 Learning Roadmap
 
 - ✅ Project 01 – RDP Brute Force Detection & Investigation
-- ⏳ Project 02 – PowerShell Suspicious Activity Detection
+- ✅ Project 02 – PowerShell Suspicious Activity Detection
 - ⏳ Project 03 – Credential Dumping Investigation
 - ⏳ Project 04 – Persistence Detection
 - ⏳ Project 05 – Malware Investigation
