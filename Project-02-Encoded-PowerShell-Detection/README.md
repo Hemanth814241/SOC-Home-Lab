@@ -1,112 +1,105 @@
 # Project 02 - Encoded PowerShell Detection and Investigation using Splunk & Sysmon
 
-## Overview
+> **Hands-on SOC project demonstrating detection engineering, alert triage, log correlation, and incident investigation using Splunk Enterprise and Microsoft Sysmon.**
+
+---
+
+# Overview
 
 This project demonstrates the complete Security Operations Center (SOC) workflow for detecting and investigating PowerShell execution using the **-EncodedCommand** parameter.
 
 A custom Splunk detection rule was developed to identify encoded PowerShell activity, generate a real-time security alert, and support incident investigation using Microsoft Sysmon Process Creation (Event ID 1) and PowerShell Script Block Logging (Event ID 4104).
 
-The investigation followed a structured SOC methodology, including alert validation, evidence collection, log correlation, and incident analysis to determine whether the activity represented malicious behavior or legitimate administrative activity. Based on the collected evidence, the alert was classified as a **False Positive (Lab Generated Activity)**.
+The investigation followed a structured SOC methodology, including alert validation, evidence collection, log correlation, and incident analysis to determine whether the activity represented malicious behavior or legitimate administrative activity. Based on the collected evidence, the alert was classified as a **False Positive (Lab Generated Activity).**
+
 ---
 
-## Objectives
+# Objectives
 
-- Detect PowerShell executed using the **-EncodedCommand** parameter.
-- Build a custom Splunk detection rule.
-- Create and configure a real-time Splunk alert.
-- Generate PowerShell telemetry in a controlled lab.
+- Detect PowerShell execution using the **-EncodedCommand** parameter.
+- Develop a custom Splunk detection rule.
+- Configure a real-time Splunk alert.
+- Generate PowerShell telemetry in a controlled SOC home lab.
 - Investigate the triggered alert using Sysmon and PowerShell logs.
-- Determine the final incident verdict.
-- Document the investigation using SOC analyst methodology.
+- Correlate evidence from multiple log sources.
+- Classify the incident based on collected evidence.
+- Document the investigation following SOC analyst methodology.
 
 ---
 
-## Lab Environment
+# Lab Environment
 
 | Component | Technology |
-|----------|------------|
+|-----------|------------|
 | SIEM | Splunk Enterprise |
 | Log Forwarder | Splunk Universal Forwarder |
 | Endpoint Monitoring | Microsoft Sysmon |
 | Operating System | Windows 10 |
-| Logging | PowerShell Script Block Logging |
+| Logging | PowerShell Script Block Logging (Event ID 4104) |
 | Sysmon Configuration | SwiftOnSecurity Sysmon Config |
 
-## Lab Architecture
-
-                Kali Linux
-             (Attack Simulation)
-                     │
-                     ▼
-        Windows 10 Endpoint
-        (PowerShell Execution)
-                     │
-             Microsoft Sysmon
-                     │
-      Splunk Universal Forwarder
-                     │
-                     ▼
-          Splunk Enterprise SIEM
-                     │
-         Custom Detection Rule
-                     │
-              Real-Time Alert
-                     │
-                     ▼
-           SOC Investigation
-                     │
-                     ▼
-      False Positive Classification
 ---
 
-## Project Workflow
-
-1. Configure Sysmon
-2. Enable PowerShell Script Block Logging
-3. Configure Splunk Universal Forwarder
-4. Build Splunk Detection Rule
-5. Create Splunk Alert
-6. Execute Encoded PowerShell Command
-7. Validate Alert Trigger
-8. Investigate Alert
-9. Perform Root Cause Analysis
-10. Document Findings
-
----
-
-## Repository Structure
+# Lab Architecture
 
 ```text
-Project-02-Encoded-PowerShell-Detection
-│
-├── Detection
-├── Investigation
-├── MITRE
-├── Queries
-├── Screenshots
-├── README.md
-└── SUMMARY.md
+                 Encoded PowerShell Execution
+                         (Lab Activity)
+                               │
+                               ▼
+                    Windows 10 Endpoint
+                               │
+      Process Creation (Event ID 1) & Script Block Logging (4104)
+                               │
+                               ▼
+                     Microsoft Sysmon
+                               │
+                               ▼
+               Splunk Universal Forwarder
+                               │
+                               ▼
+                  Splunk Enterprise SIEM
+                               │
+                    Custom Detection Rule
+                               │
+                               ▼
+                   Real-Time Security Alert
+                               │
+                               ▼
+                     SOC Investigation
+                               │
+                               ▼
+          False Positive (Lab Generated Activity)
 ```
 
 ---
 
-## Skills Demonstrated
+# Project Workflow
 
-- Splunk SIEM
-- Detection Engineering
-- Windows Event Log Analysis
-- Microsoft Sysmon
-- PowerShell Script Block Logging
-- Alert Triage
-- Incident Investigation
-- MITRE ATT&CK Mapping
-- False Positive Analysis
-- Security Monitoring
+1. Configure Microsoft Sysmon.
+2. Enable PowerShell Script Block Logging.
+3. Configure Splunk Universal Forwarder.
+4. Develop the custom Splunk detection rule.
+5. Create a real-time Splunk alert.
+6. Execute an encoded PowerShell command.
+7. Validate the triggered alert.
+8. Investigate Sysmon and PowerShell logs.
+9. Correlate investigation evidence.
+10. Classify the incident and document findings.
 
 ---
-## Investigation Methodology
 
-The alert was investigated using the following workflow:
+# Detection Logic
+
+The detection rule monitors **Microsoft Sysmon Process Creation (Event ID 1)** to identify PowerShell executed with the **-EncodedCommand** parameter.
+
+Encoded PowerShell commands are commonly used to obfuscate scripts and hide their contents. For this reason, any execution using this parameter should be investigated to determine whether the activity is legitimate or malicious.
+
+---
+
+# Investigation Methodology
+
+The alert investigation followed this workflow:
 
 1. Validate the triggered alert.
 2. Review Sysmon Process Creation (Event ID 1).
@@ -114,8 +107,54 @@ The alert was investigated using the following workflow:
 4. Investigate child process activity.
 5. Review outbound network connections.
 6. Correlate evidence from multiple log sources.
-7. Classify the incident based on collected evidence.
-## MITRE ATT&CK
+7. Determine the final incident classification.
+
+---
+
+# Repository Structure
+
+```text
+Project-02-Encoded-PowerShell-Detection
+│
+├── Detection
+│   ├── Detection-Rule.md
+│   └── Splunk-Alert-Configuration.md
+│
+├── Investigation
+│   └── Investigation-Report.md
+│
+├── Queries
+│   └── Splunk-Queries.md
+│
+├── Screenshots
+│
+├── README.md
+└── SUMMARY.md
+```
+
+---
+
+# Skills Demonstrated
+
+- Splunk Enterprise SIEM
+- Detection Engineering
+- SIEM Alert Creation
+- Windows Event Log Analysis
+- Microsoft Sysmon
+- PowerShell Script Block Logging
+- Alert Validation
+- Alert Triage
+- Incident Investigation
+- Log Correlation
+- Evidence Collection
+- Evidence-Based Incident Analysis
+- False Positive Analysis
+- MITRE ATT&CK Mapping
+- Technical Documentation
+
+---
+
+# MITRE ATT&CK Mapping
 
 | Technique | ID |
 |-----------|----|
@@ -123,13 +162,9 @@ The alert was investigated using the following workflow:
 
 ---
 
-## Final Outcome
+# Key Investigation Evidence
 
-The custom detection successfully identified encoded PowerShell execution. Investigation confirmed that the activity was intentionally generated within a controlled home lab for testing purposes. No malicious behavior, persistence, child process execution, or network communication was observed. The incident was classified as a **False Positive (Lab Generated Activity)**.
-
-## Key Investigation Evidence
-
-The investigation is supported by screenshots demonstrating:
+The investigation includes evidence collected throughout the incident response process, including:
 
 - Detection Rule Configuration
 - Real-Time Alert Configuration
@@ -141,4 +176,25 @@ The investigation is supported by screenshots demonstrating:
 - Network Investigation
 - Final Investigation Verdict
 
-Refer to the **Screenshots** folder for supporting evidence.
+Supporting screenshots are available in the **Screenshots** directory.
+
+---
+
+# Final Outcome
+
+The custom detection successfully identified encoded PowerShell execution within the SOC home lab.
+
+The investigation confirmed that the decoded PowerShell command executed a legitimate administrative task. No malicious child processes, outbound network connections, persistence mechanisms, or additional indicators of compromise were identified.
+
+Based on the collected evidence, the incident was classified as a **False Positive (Lab Generated Activity).**
+
+---
+
+# Key Takeaways
+
+- Developed a custom Splunk detection rule for encoded PowerShell execution.
+- Validated the detection using controlled lab activity.
+- Investigated alerts using Microsoft Sysmon and PowerShell Script Block Logging.
+- Correlated multiple log sources to support evidence-based decision making.
+- Applied the complete SOC investigation workflow from alert validation through incident classification.
+- Strengthened practical skills in Splunk, Windows event analysis, detection engineering, and incident response.
