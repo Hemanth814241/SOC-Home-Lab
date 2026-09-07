@@ -96,7 +96,7 @@ A search for successful RDP logon events (Event ID 4624, Logon Type 10) confirme
 
 Alert throttling was configured to prevent duplicate alerts from being generated for the same attack within the defined suppression period.
 
-![Alert Throttle](Screenshots/10_Alert_Throttle.png)
+![Alert Configuration](Screenshots/04_Alert_Configuration.png)
 
 ## 📚 Lessons Learned
 
