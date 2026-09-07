@@ -54,8 +54,7 @@ A custom Splunk SPL query identified multiple failed authentication attempts fro
 
 ### 4. Splunk Alert Configuration
 
-A scheduled Splunk alert was configured to detect five or more failed RDP authentication attempts within a five-minute window.
-
+The SPL query counts failed logins for each account, source IP, and computer, and returns results when the count reaches five or more. Set the alert’s search time range to “Last 5 minutes” to apply the five-minute detection window.
 ![Alert Configuration](Screenshots/04_Alert_Created.png)
 
 ---
