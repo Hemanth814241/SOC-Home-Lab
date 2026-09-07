@@ -10,7 +10,7 @@ This project demonstrates the complete Security Operations Center (SOC) workflow
 
 A custom Splunk detection rule was developed to identify encoded PowerShell activity, generate a real-time security alert, and support incident investigation using Microsoft Sysmon Process Creation (Event ID 1) and PowerShell Script Block Logging (Event ID 4104).
 
-The investigation followed a structured SOC methodology, including alert validation, evidence collection, log correlation, and incident analysis to determine whether the activity represented malicious behavior or legitimate administrative activity. Based on the collected evidence, the alert was classified as a **False Positive (Lab Generated Activity).**
+The investigation followed a structured SOC methodology, including alert validation, evidence collection, log correlation, and incident analysis to determine whether the activity represented malicious behavior or legitimate administrative activity. Based on the collected evidence, the alert was classified as a **Benign Positive (Authorized Lab Activity).**
 
 ---
 
@@ -69,7 +69,7 @@ The investigation followed a structured SOC methodology, including alert validat
                      SOC Investigation
                                │
                                ▼
-          False Positive (Lab Generated Activity)
+          Benign Positive (Authorized Lab Activity)
 ```
 
 ---
@@ -224,7 +224,7 @@ No outbound network connections were identified.
 
 ![Final Verdict](Screenshots/10-Final-Verdict.png)
 
-Based on the collected evidence, the activity was classified as a **False Positive (Lab Generated Activity).**
+Based on the collected evidence, the activity was classified as a **Benign Positive (Authorized Lab Activity).**
 ---
 
 # Final Outcome
