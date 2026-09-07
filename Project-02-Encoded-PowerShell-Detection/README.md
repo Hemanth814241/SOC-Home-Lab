@@ -233,7 +233,7 @@ The custom detection successfully identified encoded PowerShell execution within
 
 The investigation confirmed that the decoded PowerShell command executed a legitimate administrative task. No malicious child processes, outbound network connections, persistence mechanisms, or additional indicators of compromise were identified.
 
-Based on the collected evidence, the incident was classified as a **False Positive (Lab Generated Activity).**
+Based on the collected evidence, the incident was classified as a **Benign Positive (Authorized Lab Activity).**
 
 ---
 
