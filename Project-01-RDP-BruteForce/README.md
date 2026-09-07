@@ -55,8 +55,7 @@ A custom Splunk SPL query identified multiple failed authentication attempts fro
 ### 4. Splunk Alert Configuration
 
 The SPL query counts failed logins for each account, source IP, and computer, and returns results when the count reaches five or more. Set the alert’s search time range to “Last 5 minutes” to apply the five-minute detection window.
-![Alert Configuration](Screenshots/04_Alert_Created.png)
-
+![Alert Configuration](Screenshots/04_Alert_Configuration.png)
 ---
 
 ### 5. Triggered Alert
