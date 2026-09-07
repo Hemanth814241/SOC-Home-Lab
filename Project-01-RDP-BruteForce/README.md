@@ -51,7 +51,7 @@ A custom Splunk SPL query identified multiple failed authentication attempts fro
 ![Detection Query](Screenshots/03_Detection_Query.png)
 
 ---
-
+### 4. Splunk Alert Configuration
 A scheduled Splunk alert was configured to detect five or more failed login attempts for the same account, source IP, and computer. The alert’s search time range was set to “Last 5 minutes.”
 
 ![Alert Configuration](Screenshots/04_Alert_Configuration.png)
@@ -93,8 +93,7 @@ A search for successful RDP logon events (Event ID 4624, Logon Type 10) confirme
 
 Alert throttling was configured to prevent duplicate alerts from being generated for the same attack within the defined suppression period.
 
-![Alert Configuration](Screenshots/04_Alert_Configuration.png)
-
+![Alert Throttle](Screenshots/10_Alert_Throttle.png)
 ## 📚 Lessons Learned
 
 During this project, I gained practical experience in:
